@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SkyScope Live - ADS-B Tracker</title>
+  <link rel="preconnect" href="https://unpkg.com">
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""
+  >
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div id="app">
+    <header class="topbar">
+      <div class="brand">
+        <h1>SkyScope Live</h1>
+        <p>Global ADS-B style aircraft map</p>
+      </div>
+      <div class="controls">
+        <input id="searchInput" type="text" placeholder="Search flight, registration, ICAO, airport..." />
+        <select id="typeFilter">
+          <option value="all">All Types</option>
+          <option value="commercial">Commercial</option>
+          <option value="cargo">Cargo</option>
+          <option value="private">Private</option>
+          <option value="helicopter">Helicopter</option>
+          <option value="military">Military</option>
+          <option value="light">Light / Glider</option>
+          <option value="emergency">Emergency</option>
+        </select>
+        <select id="altFilter">
+          <option value="all">All Altitudes</option>
+          <option value="low">Low (&lt; 10,000 ft)</option>
+          <option value="mid">Mid (10,000-30,000 ft)</option>
+          <option value="high">High (&gt; 30,000 ft)</option>
+        </select>
+        <button id="toggleWeather" class="btn">Weather</button>
+        <button id="toggleDayNight" class="btn">Day/Night</button>
+      </div>
+    </header>
+
+    <main>
+      <div id="map"></div>
+      <aside id="detailPanel" class="panel closed">
+        <div class="panel-head">
+          <h2 id="panelTitle">Select an aircraft</h2>
+          <button id="closePanel" class="btn ghost">Close</button>
+        </div>
+        <div id="panelContent" class="panel-content">
+          <p>Tap any aircraft icon to see details.</p>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""
+  ></script>
+  <script src="https://unpkg.com/@joergdietrich/leaflet.terminator"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
